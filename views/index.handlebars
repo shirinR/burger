@@ -2,8 +2,22 @@
   <img src="./public/assets/images/if_burger_49739.png" alt"burger">
   <h1 id="title">Eat-Da-Burger!</h1>
   <div class="row">
-    <div class="col_left">{{burgers}}</div>
-    <div class="col_right"></div>
+    <div class="col_left">
+      <ul>
+        {{#each burgers}}
+          <!-- {{#unless devoured}} -->
+            {{> burgers/burger-block devoured=true}}
+          <!-- {{/unless}} -->
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col_right">
+      {{#each burgers}}
+        <!-- {{#if devoured}} -->
+          {{> burgers/burger-block devoured=false}}
+        <!-- {{/if}} -->
+      {{/each}}
+    </div>
   </div>
   <input type="text" id="food" name="food">
   <button tye="submit">Submit</button>
