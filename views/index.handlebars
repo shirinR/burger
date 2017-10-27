@@ -1,25 +1,30 @@
 <div class="container">
-  <img src="./public/assets/images/if_burger_49739.png" alt"burger">
+  <img src="/assets/images/if_burger_49739.png" alt="burger">
   <h1 id="title">Eat-Da-Burger!</h1>
   <div class="row">
     <div class="col_left">
       <ul>
         {{#each burgers}}
-          <!-- {{#unless devoured}} -->
+          {{#unless this.devoured}}
             {{> burgers/burger-block devoured=true}}
-          <!-- {{/unless}} -->
+            <div>
+            </div>
+          {{/unless}}
         {{/each}}
       </ul>
     </div>
     <div class="col_right">
       {{#each burgers}}
-        <!-- {{#if devoured}} -->
+        {{#if this.devoured}}
           {{> burgers/burger-block devoured=false}}
-        <!-- {{/if}} -->
+        {{/if}}
       {{/each}}
     </div>
   </div>
-  <input type="text" id="food" name="food">
-  <button tye="submit">Submit</button>
+  <form action="/" method="POST">
+  	<textarea class="form-control custom-control" rows="3" style="resize:none" id="textarea"></textarea>
+    <br>
+  	<button class="btn btn-primary" id="submit">SUBMIT</button>
+  </form>
   <p>Enter a burger you want to eat then Click "submit" button</p>
 </div>
