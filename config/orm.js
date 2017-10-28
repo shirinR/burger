@@ -1,12 +1,8 @@
-// selectAll()
-// insertOne()
-// updateOne()
-
 var connection = require("../config/connection.js");
 
 function questionMarks(placeHolder){
   var arr = [];
-  for(var i=0; i<placeHolder.length; i++){
+  for(var i=0; i<placeHolder; i++){
     arr.push('?');
   }
   return arr.toString();
@@ -36,10 +32,15 @@ var orm ={
     });
   },
   insertOne:function(table, cols, vals, outPut){
-    var queryString = 'INSERT INTO ' + table + "(" + cols.toString() + ")" + " VALUES (";
+    var queryString = 'INSERT INTO ' + table;
+
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
     queryString += questionMarks(vals.length);
-    queryString += ");";
- 
+    queryString += ") ";
+
     connection.query(queryString, vals, function(err, result) {
       if (err) throw err;
       outPut(result);
