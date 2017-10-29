@@ -31,20 +31,14 @@ var orm ={
       outPut(result);
     });
   },
-  insertOne:function(table, cols, vals, outPut){
-    var queryString = 'INSERT INTO ' + table;
+  insertOne:function(table, col, val, outPut){
+    var queryString = "INSERT INTO " + table +  " (" + col.toString() + ") VALUES (" + questionMarks(val.length) + ") ";
 
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += questionMarks(vals.length);
-    queryString += ") ";
-
-    connection.query(queryString, vals, function(err, result) {
-      if (err) throw err;
-      outPut(result);
-    });
+    console.log("vals: ", val);
+    // connection.query(queryString, val, function(err, result){
+    //   if (err) throw err;
+    //   outPut(result);
+    // });
   },
   updateOne: function(table, objColVals, condition, outPut){
     var queryString = 'UPDATE ' + table + ' SET ';

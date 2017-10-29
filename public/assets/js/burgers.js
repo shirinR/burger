@@ -5,11 +5,16 @@ $('#submit').on('click', function(event){
   event.preventDefault();
 
   var newBurger = {
-    burger_name: $('#textarea').val().trim(),
-    devoured: $(this).data("devoured")
+    burger_name: $('#name').val().trim()
   };
-
-  $.post('/api/burgers',newBurger).done(function(data){
+  $.post('/',newBurger).done(function(data){
     location.reload();
   });
+});
+
+
+$('#devoured').on('click', function(event){
+  event.preventDefault();
+  consolr.log('here');
+  // this.devoured = true;
 });

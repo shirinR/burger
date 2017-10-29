@@ -6,8 +6,8 @@
       <ul>
         {{#each burgers}}
           {{#unless this.devoured}}
-            {{> burgers/burger-block devoured=true}}
             <div>
+              <p class="devoured">{{this.id}}. {{this.burger_name}}<button class="btn btn-primary" id="devoured">Devoured!!</button></p>
             </div>
           {{/unless}}
         {{/each}}
@@ -16,15 +16,16 @@
     <div class="col_right">
       {{#each burgers}}
         {{#if this.devoured}}
-          {{> burgers/burger-block devoured=false}}
+          <p class="devoured">{{this.id}}. {{this.burger_name}}</p>
         {{/if}}
       {{/each}}
     </div>
   </div>
   <form action="/" method="POST">
-  	<textarea class="form-control custom-control" rows="3" style="resize:none" id="textarea"></textarea>
+  	<!-- <input class="form-control custom-control" style="resize:none" id="textarea"> -->
+    <textarea id="name" name="burger_name" rows="8" cols="40"></textarea>
     <br>
-  	<button class="btn btn-primary" id="submit">SUBMIT</button>
+  	<button type="submit" class="btn btn-primary" id="submit">SUBMIT</button>
   </form>
   <p>Enter a burger you want to eat then Click "submit" button</p>
 </div>

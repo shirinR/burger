@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var bodyParser = require("body-parser-json");
 var methodOverrides = require("method-override");
 
 var port = process.env.PORT || 3000;
