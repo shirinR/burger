@@ -31,14 +31,14 @@ var orm ={
       outPut(result);
     });
   },
-  insertOne:function(table, col, val, outPut){
-    var queryString = "INSERT INTO " + table +  " (" + col.toString() + ") VALUES (" + questionMarks(val.length) + ") ";
+  insertOne:function(table, cols, vals, outPut){
+    var queryString = "INSERT INTO " + table +  " (" + cols.toString() + ") VALUES (" + questionMarks(vals.length) + ") ";
 
-    console.log("vals: ", val);
-    // connection.query(queryString, val, function(err, result){
-    //   if (err) throw err;
-    //   outPut(result);
-    // });
+    console.log("vals: ", vals);
+    connection.query(queryString, vals, function(err, result){
+      if (err) throw err;
+      outPut(result);
+    });
   },
   updateOne: function(table, objColVals, condition, outPut){
     var queryString = 'UPDATE ' + table + ' SET ';

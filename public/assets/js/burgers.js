@@ -12,9 +12,14 @@ $('#submit').on('click', function(event){
   });
 });
 
-
-$('#devoured').on('click', function(event){
+$('.devoured').on('click', function(event){
   event.preventDefault();
-  consolr.log('here');
-  // this.devoured = true;
+  console.log('here');
+
+  var newDevoured = {
+    devoured: this.devoured = true
+  };
+  $.post('/',newDevoured).done(function(data){
+    location.reload();
+  });
 });
