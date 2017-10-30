@@ -7,10 +7,32 @@ html{
   background-color: rgb(255, 220, 128);
 }
 
-.title{
+#title{
   color: red;
 }
 
-.devoured{
-  /*text-align: left;*/
+.col_right{
+  border: 1px rgb(255, 140, 128) solid;
+  width: 47%;
+  float: right;
+  margin-right: 15px;
+}
+
+.col_left{
+  border: 1px rgb(255, 140, 128) solid;
+  width: 47%;
+  float:left;
+  margin-left: 15px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#name{
+  margin-top: 20px;
+  align-items: center;
+  margin-right: 50px;
 }

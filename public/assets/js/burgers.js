@@ -1,25 +1,35 @@
-$('#submit').on('click', function(event){
-  // var id = $(this).data("id");
-  // var newBurger = $(this).data("burger_name");
-  // var devouredState = $(this).data("devoured");
-  event.preventDefault();
+$(function() {
 
-  var newBurger = {
-    burger_name: $('#name').val().trim()
-  };
-  $.post('/',newBurger).done(function(data){
-    location.reload();
+  $('#submit').on('click', function(event){
+    event.preventDefault();
+    var newBurger = {
+      burger_name: $('#name').val().trim()
+    };
+    $.post('/',newBurger).done(function(data){
+      location.reload();
+    });
   });
-});
 
-$('.devoured').on('click', function(event){
-  event.preventDefault();
-  console.log('here');
+  $('.devoured').on('click', '#dev', function(event){
+    event.preventDefault();
 
-  var newDevoured = {
-    devoured: this.devoured = true
-  };
-  $.post('/',newDevoured).done(function(data){
-    location.reload();
+    $(this).attr('data-newdevoured', true);
+    var id = $(this).data("id");
+    var newDevoured = $(this).data("newdevoured");
+    var newBurger = $(this).data("newburger");
+
+    var newDev = {
+      devoured: newDevoured
+    };
+
+    $.ajax("/" + id, {
+      type: "PUT",
+      data: newDev
+    }).then(
+      function() {
+        console.log("hey", newDevoured);
+        location.reload();
+      }
+    );
   });
 });

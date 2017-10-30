@@ -7,7 +7,7 @@
         {{#each burgers}}
           {{#unless this.devoured}}
             <div>
-              <p class="devoured">{{this.id}}. {{this.burger_name}}<button type="submit" class="btn btn-primary" id="dev">Devoured!!</button></p>
+              <p class="devoured">{{this.id}}. {{this.burger_name}}<span> </span><button type="submit" class="btn btn-primary" id="dev" data-id="{{id}}" data-newdevoured="{{devoured}}" data-newburger="{{this.burger_name}}">Devoured!!</button></p>
             </div>
           {{/unless}}
         {{/each}}
@@ -26,5 +26,5 @@
     <br>
   	<button type="submit" class="btn btn-primary" id="submit">SUBMIT</button>
   </form>
-  <p>Enter a burger you want to eat then Click "submit" button</p>
+  <p><h5>Enter a burger you want to eat then Click <strong>"submit"</strong> button</h5></p>
 </div>
