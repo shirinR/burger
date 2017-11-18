@@ -3,15 +3,13 @@
   <h1 id="title">Eat-Da-Burger!</h1>
   <div class="row">
     <div class="col_left">
-      <ul>
-        {{#each burgers}}
-          {{#unless this.devoured}}
-            <div>
-              <p class="devoured">{{this.id}}. {{this.burger_name}}<span> </span><button type="submit" class="btn btn-primary" id="dev" data-id="{{id}}" data-newdevoured="{{devoured}}" data-newburger="{{this.burger_name}}">Devoured!!</button></p>
-            </div>
-          {{/unless}}
-        {{/each}}
-      </ul>
+      {{#each burgers}}
+        {{#unless this.devoured}}
+          <div>
+            <p class="devoured">{{this.id}}. {{this.burger_name}}<span> </span><button type="submit" class="btn btn-primary" id="dev" data-id="{{id}}" data-newdevoured="{{devoured}}" data-newburger="{{this.burger_name}}">Devoured!!</button></p>
+          </div>
+        {{/unless}}
+      {{/each}}
     </div>
     <div class="col_right">
       {{#each burgers}}
@@ -21,10 +19,14 @@
       {{/each}}
     </div>
   </div>
-  <form action="/" method="POST">
-    <textarea id="name" name="burger_name" rows="8" cols="40"></textarea>
-    <br>
-  	<button type="submit" class="btn btn-primary" id="submit">SUBMIT</button>
-  </form>
-  <p><h5>Enter a burger you want to eat then Click <strong>"submit"</strong> button</h5></p>
+  <div class="row">
+    <div class="col">
+      <form action="/" method="POST">
+        <textarea id="name" name="burger_name" rows="8" cols="40"></textarea>
+        <br>
+      	<button type="submit" class="btn btn-primary" id="submit">SUBMIT</button>
+      </form>
+      <p><h5>Enter a burger you want to eat then Click <strong>"submit"</strong> button</h5></p>
+    </div>
+  </div>
 </div>

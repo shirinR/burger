@@ -36,3 +36,8 @@ html{
   align-items: center;
   margin-right: 50px;
 }
+
+
+.box{
+  border:1px black solid;
+}
