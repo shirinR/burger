@@ -55,3 +55,8 @@ All the recommended files and directories from the steps above should look like 
     └── layouts
         └── main.handlebars
 ```
+
+
+## Copyright
+
+Coding Boot Camp (C) 2016. All Rights Reserved.
